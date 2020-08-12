@@ -47,26 +47,16 @@ const defaultValues: CurrentUserContextData = {
     const { user, setUser } = useContext(CurrentUserContext);
   
     const load = useCallback(async () => {
-      try {
         const currentUser = MOCK_USER;
         setUser(currentUser);
         console.log("Went here");
-        
-      } catch (e) {
-      }
     }, [setUser]);
 
     const updateUser = useCallback(async (name: string) => {
-        try {
           const currentUser = MOCK_USER;
           currentUser.name = name;
           setUser(currentUser);
-          console.log("Went here2"+name);
-
           return currentUser;
-          
-        } catch (e) {
-        }
       }, [setUser]);
 
   

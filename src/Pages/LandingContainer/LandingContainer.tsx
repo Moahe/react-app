@@ -11,10 +11,8 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
     const getCurrentUser = useCurrentUser();
 
     useEffect(() => {
-      console.log("Was called12");
-      
-      setCurrentUser(''+getCurrentUser.user?.name);
-    },[setUpdateUser, getCurrentUser.user]);
+      getCurrentUser.load();
+    },[]);
 
     const renderConfetti = () => {
         const items = [];
@@ -25,14 +23,23 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
         return items;
     }
 
+    const updateUsername = () => {
+      getCurrentUser.updateUser(updateUser);
+      setCurrentUser(updateUser);
+    }
+
     return (<div className="App">
     <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      {getCurrentUser.user?.name}
-      <input value={updateUser} onChange={event => setUpdateUser(event.target.value)}/>
-      <button onClick={()=>getCurrentUser.updateUser(updateUser)}>Finish</button>
+      Webbshop
+    <img src={logo} className="App-logo" alt="logo" />
+    {getCurrentUser.user?.name}
     </header>
-  </div>);
+    <div className="container">
+      <input value={updateUser} onChange={(event) => setUpdateUser(event.target.value)}/>
+      <button onClick={updateUsername} className="button">Finish</button>
+      </div>
+  </div>
+  );
 }
 
 export default LandingContainer;

@@ -12,16 +12,16 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
 
     useEffect(() => {
       getCurrentUser.load();
-    },[]);
+    },[getCurrentUser]);
 
-    const renderConfetti = () => {
-        const items = [];
-        var i = 150;
-        for(i; i>1; i-=1){
-            items.push(<div className={"confetti-"+i} />);
-        }
-        return items;
-    }
+    // const renderConfetti = () => {
+    //     const items = [];
+    //     var i = 150;
+    //     for(i; i>1; i-=1){
+    //         items.push(<div className={"confetti-"+i} />);
+    //     }
+    //     return items;
+    // }
 
     const updateUsername = () => {
       getCurrentUser.updateUser(updateUser);
@@ -35,6 +35,7 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
     {getCurrentUser.user?.name}
     </header>
     <div className="container">
+      {currentUser}
       <input value={updateUser} onChange={(event) => setUpdateUser(event.target.value)}/>
       <button onClick={updateUsername} className="button">Finish</button>
       </div>

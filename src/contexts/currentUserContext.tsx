@@ -23,16 +23,12 @@ const defaultValues: CurrentUserContextData = {
   };
   
   const CurrentUserContext = React.createContext<CurrentUserContextData>(defaultValues);
-  
-  interface CurrentUserContextProviderProps {
-    initialValues?: CurrentUserContextData;
-  }
 
-  export const CurrentUserContextProvider: React.FunctionComponent<CurrentUserContextProviderProps> = ({
+
+  export const CurrentUserContextProvider: React.FunctionComponent = ({
     children,
-    initialValues,
   }) => {
-    const [user, setUser] = useState(initialValues ? initialValues.user : defaultValues.user);
+    const [user, setUser] = useState(defaultValues.user);
     return (
       <CurrentUserContext.Provider value={{ user, setUser }}>{children}</CurrentUserContext.Provider>
     );
@@ -49,7 +45,6 @@ const defaultValues: CurrentUserContextData = {
     const load = useCallback(async () => {
         const currentUser = MOCK_USER;
         setUser(currentUser);
-        console.log("Went here");
     }, [setUser]);
 
     const updateUser = useCallback(async (name: string) => {

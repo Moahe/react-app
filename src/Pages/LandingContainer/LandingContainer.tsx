@@ -26,6 +26,7 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
     const updateUsername = () => {
       getCurrentUser.updateUser(updateUser);
       setCurrentUser(updateUser);
+      return currentUser;
     }
 
     return (<div className="App">

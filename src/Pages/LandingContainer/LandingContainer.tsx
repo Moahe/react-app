@@ -35,7 +35,6 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
     {getCurrentUser.user?.name}
     </header>
     <div className="container">
-      {currentUser}
       <input value={updateUser} onChange={(event) => setUpdateUser(event.target.value)}/>
       <button onClick={updateUsername} className="button">Finish</button>
       </div>

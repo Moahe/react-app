@@ -1,23 +1,32 @@
 .App {
   text-align: center;
-  background-color: #e6e6e6;
+  background-color: #f5f5f5;
   height: 100%;
   min-height: 100vh;
-
-  .App-logo {
-    height: 30px;
-    pointer-events: none;
-  }
   
   .App-header {
-    background-color: #808080;
-    min-height: 36px;
+    background-color: #fcfcfc;
+    min-height: 32px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: rgb(63, 63, 63);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 24px 0px;
+    padding: 9px 15px;
+
+    .cart {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 2%;
+
+      .App-logo {
+        height: 25px;
+        pointer-events: none;
+      }
+    }
   }
   
   .App-link {
@@ -28,15 +37,55 @@
     margin: auto;
     display: flex;
     margin: 0;
-    display: flex;
     align-items: center;
     flex-direction: column;
 
     input {
       width: 180px;
       margin: 20px 0px;
-
     }
+
+    .shopWindow {
+      display: flex;
+      flex-direction: row;
+
+
+    .item {
+      padding-top: 10px;
+      position: relative;
+      overflow: hidden;
+      float: left;
+      width: 154px;
+      height: 220px;
+      box-sizing: border-box;
+      background-color: #fff;
+      text-align: center;
+      margin: 12px;
+
+      .itemPicture {
+        width: 100px;
+        height: 100px;
+      }
+
+      .cartButton {
+        border-color: transparent;
+        border-radius: 3px;
+        background-color: #FF9393;
+        padding: 2px 4px;
+        font-family: Arial, "Arial Unicode MS", Helvetica, "DejaVu Sans", "Lucida Sans Unicode", sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        line-height: 18px;
+        overflow: hidden;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        color: white;
+      }
+    }
+    }
+
     
 
     .button {
@@ -54,7 +103,7 @@
       text-decoration: none;
       vertical-align: middle;
       color: white;
-      width: 180px;
+      margin: 8px 0px;
     }
   }
 

@@ -4,14 +4,17 @@ import './App.scss';
 import './style.scss';
 import { CurrentUserContextProvider } from './contexts/currentUserContext';
 import LandingContainer from './Pages/LandingContainer/LandingContainer';
+import { CountProvider } from './contexts/countContext';
 
 const App: React.FunctionComponent = () => {
   return (
     <BrowserRouter>
     <CurrentUserContextProvider>
+    <CountProvider>
     <Switch>
     <Route path="*" component={LandingContainer} />
     </Switch>
+    </CountProvider>
     </CurrentUserContextProvider>
     </BrowserRouter>
   );

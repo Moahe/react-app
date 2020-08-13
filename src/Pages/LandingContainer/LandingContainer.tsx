@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import logo from '../../flamingo.png';
 import useCurrentUser from '../../contexts/currentUserContext';
+import { ReactComponent as CartIcon } from '../../assets/cart.svg';
+import {useCountState, useCountDispatch} from '../../contexts/countContext';
+import oil from '../../assets/oil.jpeg';
+import soap from '../../assets/soap.jpeg';
+
+
 
 interface LandingContainerProps extends RouteComponentProps {}
 
@@ -9,6 +14,8 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
     const [updateUser, setUpdateUser] = useState('');
     const [currentUser, setCurrentUser] = useState('');
     const getCurrentUser = useCurrentUser();
+    const {count} = useCountState();
+    const dispatch = useCountDispatch();
 
     useEffect(() => {
       getCurrentUser.load();
@@ -31,13 +38,38 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
 
     return (<div className="App">
     <header className="App-header">
-      Webbshop
-    <img src={logo} className="App-logo" alt="logo" />
-    {getCurrentUser.user?.name}
+      <div className="title">Webbshop</div>
+
+    <div className="cart">
+    <CartIcon className="App-logo" />
+    {count}
+    </div>
     </header>
     <div className="container">
+      <div className="shopWindow">
+        <div className="item">
+        <img src={oil} className="itemPicture" alt="" />
+        <p>Hair oil</p>
+        <button onClick={() => dispatch({type: 'increment'})} className="cartButton">Add to cart</button>
+        </div>
+
+        <div className="item">
+        <img src={soap} className="itemPicture" alt="" />
+        <p>Soap</p>
+        <button onClick={() => dispatch({type: 'increment'})} className="cartButton">Add to cart</button>
+        </div>
+
+        <div className="item">
+        <img src={oil} className="itemPicture" alt="" />
+        <p>Hair oil</p>
+        <button onClick={() => dispatch({type: 'increment'})} className="cartButton">Add to cart</button>
+        </div>
+
+      </div>
       <input value={updateUser} onChange={(event) => setUpdateUser(event.target.value)}/>
       <button onClick={updateUsername} className="button">Finish</button>
+      <button onClick={() => dispatch({type: 'decrement'})} className="button">Remove from cart</button>
+
       </div>
   </div>
   );

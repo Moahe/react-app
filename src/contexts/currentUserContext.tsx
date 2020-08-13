@@ -24,7 +24,6 @@ const defaultValues: CurrentUserContextData = {
   
   const CurrentUserContext = React.createContext<CurrentUserContextData>(defaultValues);
 
-
   export const CurrentUserContextProvider: React.FunctionComponent = ({
     children,
   }) => {

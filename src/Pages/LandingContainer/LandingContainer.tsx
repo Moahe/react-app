@@ -4,6 +4,7 @@ import useCurrentUser from '../../contexts/currentUserContext';
 import { ReactComponent as CartIcon } from '../../assets/cart.svg';
 import {useCountState, useCountDispatch} from '../../contexts/countContext';
 import oil from '../../assets/oil.jpeg';
+import Button from '@material-ui/core/Button';
 import soap from '../../assets/soap.jpeg';
 
 
@@ -69,6 +70,7 @@ export const LandingContainer: React.FunctionComponent<LandingContainerProps> = 
       <input value={updateUser} onChange={(event) => setUpdateUser(event.target.value)}/>
       <button onClick={updateUsername} className="button">Finish</button>
       <button onClick={() => dispatch({type: 'decrement'})} className="button">Remove from cart</button>
+
 
       </div>
   </div>
